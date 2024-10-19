@@ -1,5 +1,5 @@
 importlib_metadata
-huggingface_hub
+huggingface_hub==0.25.2
 scipy
 filelock
 numpy
