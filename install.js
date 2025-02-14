@@ -20,6 +20,7 @@ module.exports = {
           "git submodule update --recursive --init",
           "{{(gpu === 'nvidia' ? self.cmds.nvidia : (gpu === 'amd' ? self.cmds.amd : self.cmds.default))}}",
           "pip install {{platform === 'darwin' ? 'eva-decord' : 'decord'}}",
+          "python -m pip install pip==24.0",
           "pip install -r ../vca_requirements.txt"
         ]
       }
