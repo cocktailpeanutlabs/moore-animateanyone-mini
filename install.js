@@ -1,16 +1,9 @@
 module.exports = {
   "cmds": {
-    "nvidia": "pip install torch torchvision torchaudio xformers --index-url https://download.pytorch.org/whl/cu118",
-    "amd": "pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm5.6",
-    "default": "pip3 install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cpu"
+    "nvidia": "pip install torch==2.5.0 torchvision==0.20.0 torchaudio==2.5.0 xformers --index-url https://download.pytorch.org/whl/cu124",
+    "amd": "pip install torch==2.5.0 torchvision==0.20.0 torchaudio==2.5.0 --index-url https://download.pytorch.org/whl/rocm6.2",
+    "default": "pip3 install torch==2.5.0 torchvision==0.20.0 torchaudio==2.5.0 --index-url https://download.pytorch.org/whl/nightly/cpu"
   },
-  "requires": [{
-    "type": "conda",
-    "name": "ffmpeg",
-    "args": "-c conda-forge"
-  }, {
-    "name": "cuda"
-  }],
   "run": [
     {
       "method": "shell.run",
@@ -27,6 +20,7 @@ module.exports = {
           "git submodule update --recursive --init",
           "{{(gpu === 'nvidia' ? self.cmds.nvidia : (gpu === 'amd' ? self.cmds.amd : self.cmds.default))}}",
           "pip install {{platform === 'darwin' ? 'eva-decord' : 'decord'}}",
+          "python -m pip install pip==24.0",
           "pip install -r ../vca_requirements.txt"
         ]
       }
