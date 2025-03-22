@@ -1,6 +1,6 @@
 const path = require('path')
 module.exports = {
-  version: 1,
+  version: "3.0",
   title: "Moore-AnimateAnyone-Mini",
   description: "[NVIDIA ONLY] Efficient Implementation of Animate Anyone (13G VRAM + 2G model size) https://github.com/sdbds/Moore-AnimateAnyone-for-windows",
   icon: "icon.jpeg",
